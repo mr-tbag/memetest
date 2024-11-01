@@ -1,0 +1,89 @@
+﻿@page "/"
+
+<PageTitle>Memetest</PageTitle>
+
+
+<div style="width: 50%; background: cyan; margin: auto">
+    <h1>Memetest</h1>
+    <h2>Тест на хойщика</h2>
+    <Question Text="Вы хотите разделить Польшу?" @bind-Variable="@RazdP">
+        <Answer Value="Да"/>   
+        <Answer Value="Нет"/>
+    </Question>
+    <Question Text="Вы любите географию?" @bind-Variable="@Geo">
+        <Answer Value="Да"/>   
+        <Answer Value="Нет"/>
+    </Question>
+    <Question Text="вы трогаете траву?" @bind-Variable="@trava">
+        <Answer Value="Да" />
+        <Answer Value="Нет" />
+        <Answer Value="Иногда" />
+    </Question>
+    <Question Text="Вы одиноки?" @bind-Variable="@odin">
+        <Answer Value="Да" />
+        <Answer Value="Нет" />
+    </Question>
+    <Question Text="Вы вините во всём евреев?" @bind-Variable="@zjech">
+        <Answer Value="Да" />
+        <Answer Value="Нет" />
+    </Question>
+    <Question Text="Когда началась Второя Мировая война?" @bind-Variable="@dva">
+        <Answer Value="1945" />
+        <Answer Value="1941" />
+        <Answer Value="1939" />
+    </Question>
+    <button @onclick="RunTest">Узнать результат</button>
+    @if(Score != null)
+    {
+        if(Score >= 25)
+        {
+            <h3>Вы хойщик</h3>
+        }
+        else
+        {
+            <h3>Вы не хойщик</h3>
+        }
+    }
+</div>
+
+@code {
+    string trava = "aa";
+    string dva = "aa";
+    string zjech = "aa";
+    string odin = "aa";
+    string RazdP = "aa";
+    string Geo = "aa";
+    int? Score = null;
+    private void RunTest()
+    {
+        Score = 0;
+        if (RazdP == "Да")
+        {
+            Score += 10;
+        }
+        if (Geo == "Да")
+        {
+            Score += 10;
+        }     
+        if (trava == "Нет")
+        {
+            Score += 10;
+        }
+        if (trava == "Иногда")
+        {
+            Score += 5;
+        }
+        if (odin == "Да")
+        {
+            Score += 10;
+        }
+        if (zjech == "Да")
+        {
+            Score += 10;
+        }
+        if (dva == "1939")
+        {
+            Score += 10;
+        }
+    }
+}

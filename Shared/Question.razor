@@ -1,0 +1,19 @@
+﻿<h3>@Text</h3>
+<CascadingValue Name="Name" Value="@Text">
+    <CascadingValue Name="Variable" Value="@Variable">
+        <CascadingValue Name="VariableChanged" Value="@VariableChanged">
+            @ChildContent
+        </CascadingValue>
+    </CascadingValue>
+</CascadingValue>
+
+@code {
+    [Parameter]
+    public string Variable { get; set; }
+    [Parameter]
+    public Action<string> VariableChanged { get; set; }
+    [Parameter]
+    public string Text { get; set; }
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+}

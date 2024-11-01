@@ -1,0 +1,15 @@
+﻿<label>
+    <input type="radio" name="@Name" @onchange="() => VariableChanged(Value)" />
+    @Value
+</label>
+
+@code {
+    [CascadingParameter(Name = "Variable")]
+    public string Variable { get; set; }
+    [CascadingParameter(Name = "VariableChanged")]
+    public Action<string> VariableChanged { get; set; }
+    [Parameter]
+    public string Value { get; set; }
+    [CascadingParameter(Name = "Name")]
+    public string Name { get; set; }
+}
