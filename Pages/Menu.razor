@@ -1,0 +1,17 @@
+﻿@page "/";
+@inject IJSRuntime jsRuntime
+@inject NavigationManager NavManager
+
+<NavMenu MenuVisible/>
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+        var mobile = await jsRuntime.InvokeAsync<bool>("isDevice");
+        if (!mobile)
+        {
+            NavManager.NavigateTo("/hoi");
+        }
+    }
+}

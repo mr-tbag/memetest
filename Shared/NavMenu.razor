@@ -1,10 +1,10 @@
-﻿<div class="menu">
+﻿<div class="menu @(MenuVisible ? "open" : "")">
     <nav class="flex-column" style="height: 100%; display: flex">
         <div class="nav-item px-3" style="color: blue">
             Тесты:
         </div>
         <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+            <NavLink class="nav-link" href="/hoi" Match="NavLinkMatch.All">
                 На хойщика
             </NavLink>
         </div>       
@@ -21,4 +21,11 @@
         </div>
     </nav>
 </div>
+<a class="open-menu" href="/">
+    <img style="width: 50px; height: 50px; backdrop-filter: blur(1px)" src="/list.svg"/>
+</a>
 
+@code {
+    [Parameter]
+    public bool MenuVisible { get; set; }
+}
