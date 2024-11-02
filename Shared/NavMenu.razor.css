@@ -1,10 +1,10 @@
 .menu {
-    background-color: olivedrab;
+    background-color: #6b8e23aa;
     position: fixed;
     top: 0;
     left: 0;
     bottom: 0;
-    width: 200px;
+    width: 300px;
 }
 .oi {
     width: 2rem;

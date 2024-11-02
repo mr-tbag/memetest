@@ -3,48 +3,53 @@
 <PageTitle>Memetest</PageTitle>
 
 
-<div style="width: 50%; background: cyan; margin: auto">
-    <h1>Memetest</h1>
-    <h2>Тест на хойщика</h2>
-    <Question Text="Вы хотите разделить Польшу?" @bind-Variable="@RazdP">
-        <Answer Value="Да"/>   
-        <Answer Value="Нет"/>
-    </Question>
-    <Question Text="Вы любите географию?" @bind-Variable="@Geo">
-        <Answer Value="Да"/>   
-        <Answer Value="Нет"/>
-    </Question>
-    <Question Text="вы трогаете траву?" @bind-Variable="@trava">
-        <Answer Value="Да" />
-        <Answer Value="Нет" />
-        <Answer Value="Иногда" />
-    </Question>
-    <Question Text="Вы одиноки?" @bind-Variable="@odin">
-        <Answer Value="Да" />
-        <Answer Value="Нет" />
-    </Question>
-    <Question Text="Вы вините во всём евреев?" @bind-Variable="@zjech">
-        <Answer Value="Да" />
-        <Answer Value="Нет" />
-    </Question>
-    <Question Text="Когда началась Второя Мировая война?" @bind-Variable="@dva">
-        <Answer Value="1945" />
-        <Answer Value="1941" />
-        <Answer Value="1939" />
-    </Question>
-    <button @onclick="RunTest">Узнать результат</button>
-    @if(Score != null)
+<h2>Тест на хойщика</h2>
+<Question Text="Вы хотите разделить Польшу?" @bind-Variable="@RazdP">
+    <Answer Value="Да"/>   
+    <Answer Value="Нет"/>
+</Question>
+<Question Text="Вы любите географию?" @bind-Variable="@Geo">
+    <Answer Value="Да"/>   
+    <Answer Value="Нет"/>
+</Question>
+<Question Text="вы трогаете траву?" @bind-Variable="@trava">
+    <Answer Value="Да" />
+    <Answer Value="Нет" />
+    <Answer Value="Иногда" />
+</Question>
+<Question Text="Вы одиноки?" @bind-Variable="@odin">
+    <Answer Value="Да" />
+    <Answer Value="Нет" />
+</Question>
+<Question Text="Когда началась Второя Мировая война?" @bind-Variable="@dva">
+    <Answer Value="1945" />
+    <Answer Value="1941" />
+    <Answer Value="1939" />
+</Question>
+<Question Text="Кто виноват во Второй Мировой войне?" @bind-Variable="@zjech">
+    <Answer Value="Гитлер" />
+    <Answer Value="Евреи" />
+    <Answer Value="Я" />
+</Question>
+<button @onclick="RunTest">Узнать результат</button>
+    
+@if(Score != null)
+{
+    <h3>
+        Ваш результат: <span>@(100 * Score / MaxScore)%</span>
+    </h3>
+    <h3>
+    Вывод: вы 
+    @if(Score >= 30)
     {
-        if(Score >= 25)
-        {
-            <h3>Вы хойщик</h3>
-        }
-        else
-        {
-            <h3>Вы не хойщик</h3>
-        }
+        <span>хойщик</span>
     }
-</div>
+    else
+    {
+        <span>не хойщик</span>
+        }
+    </h3>
+}
 
 @code {
     string trava = "aa";
@@ -54,6 +59,7 @@
     string RazdP = "aa";
     string Geo = "aa";
     int? Score = null;
+    const int MaxScore = 60;
     private void RunTest()
     {
         Score = 0;
@@ -77,7 +83,7 @@
         {
             Score += 10;
         }
-        if (zjech == "Да")
+        if (zjech == "Евреи" || zjech == "Я")
         {
             Score += 10;
         }

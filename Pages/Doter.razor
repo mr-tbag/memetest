@@ -1,0 +1,43 @@
+﻿@page "/doter"
+
+<PageTitle>Memetest - Тест на дотера</PageTitle>
+
+
+<h2>Тест на дотера</h2>
+<Question Text="У вас есть мама?" @bind-Variable="@RazdP">
+    <Answer Value="Да"/>   
+    <Answer Value="Нет"/>
+</Question>
+<button @onclick="RunTest">Узнать результат</button>
+    
+@if(Score != null)
+{
+    <h3>
+        Ваш результат: <span>@(100 * Score / MaxScore)%</span>
+    </h3>
+    <h3>
+    Вывод: вы 
+    @if(Score >= 10)
+    {
+            <span>чмо безмамное</span>
+    }
+    else
+    {
+            <span>не дотер</span>
+    }
+    </h3>
+}
+
+@code {
+    string RazdP = "aa";
+    int? Score = null;
+    const int MaxScore = 10;
+    private void RunTest()
+    {
+        Score = 0;
+        if (RazdP == "Нет")
+        {
+            Score += 10;
+        }
+    }
+}

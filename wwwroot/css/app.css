@@ -1,11 +1,20 @@
 ﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
 html, body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Stalinist One', Helvetica, Arial, sans-serif;
+}
+body {
+    background-image: url('/bg.jpg');
+    cursor: url('/cursor.svg'), auto;
+}
+
+* {
+    cursor: url('/cursor.svg'), auto !important;
 }
 
 main {
     margin-left: 250px;
+    padding-bottom: 100px;
 }
 
 h1:focus {
@@ -66,3 +75,35 @@ a, .btn-link {
     .blazor-error-boundary::after {
         content: "An error has occurred."
     }
+
+label:has(input:checked) {
+    color: blue;
+}
+
+label:has(input:not(:checked)) {
+    color: red;
+}
+
+button {
+    background: #6b8e23;
+    display: block;
+    margin: 20px auto 60px auto;
+}
+
+.group:not(:has(label > input:checked)) ~ button {
+    pointer-events: none;
+    background: #ff0000;
+}
+
+h2 {
+    text-align: center;
+    text-decoration: underline dashed;
+}
+
+h3 {
+    text-align: center;
+}
+
+h3 span {
+    color: red;
+}

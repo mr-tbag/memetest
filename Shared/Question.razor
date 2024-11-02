@@ -1,11 +1,13 @@
-﻿<h3>@Text</h3>
-<CascadingValue Name="Name" Value="@Text">
-    <CascadingValue Name="Variable" Value="@Variable">
-        <CascadingValue Name="VariableChanged" Value="@VariableChanged">
-            @ChildContent
+﻿<h3 style="text-align: center; text-transform: lowercase">@Text</h3>
+<div class="group" style="display: flex; justify-content:space-around; margin-bottom: 50px">
+    <CascadingValue Name="Name" Value="@Text">
+        <CascadingValue Name="Variable" Value="@Variable">
+            <CascadingValue Name="VariableChanged" Value="@VariableChanged">
+                @ChildContent
+            </CascadingValue>
         </CascadingValue>
     </CascadingValue>
-</CascadingValue>
+</div>
 
 @code {
     [Parameter]
