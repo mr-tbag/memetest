@@ -4,7 +4,7 @@ html, body {
     font-family: 'Stalinist One', Helvetica, Arial, sans-serif;
 }
 body {
-    background-image: url('/bg.jpg');
+    background-image: url('/bg.jpg?v=2');
     cursor: url('/cursor.svg'), auto;
 }
 
