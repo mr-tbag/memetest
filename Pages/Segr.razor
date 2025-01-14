@@ -1,0 +1,70 @@
+﻿@page "/segr"
+
+<PageTitle>Memetest - Тест на снегра</PageTitle>
+
+
+<h2>Тест на снегра</h2>
+<Question Text="вы негр?" @bind-Variable="@niga">
+    <Answer Value="Да"/>   
+    <Answer Value="Нет"/>
+</Question>
+<Question Text="вы любите снег?" @bind-Variable="@sneg">
+    <Answer Value="Да" />
+    <Answer Value="Нет" />
+</Question>
+<Question Text="ваше любимое время года зима?" @bind-Variable="@zima">
+    <Answer Value="Да" />
+    <Answer Value="Нет" />
+</Question><Question Text="у вас смещён центр тяжести?" @bind-Variable="@c">
+    <Answer Value="Да" />
+    <Answer Value="Нет" />
+</Question>
+<button @onclick="RunTest">Узнать результат</button>
+    
+@if(Score != null)
+{
+    <h3>
+        Ваш результат: <span>@(100 * Score / MaxScore)%</span>
+    </h3>
+    <h3>
+    Вывод:  
+    @if(Score >= 20)
+    {
+            <span>поздравляю вы снегр</span>
+    }
+    else
+    {
+            <span>вы не снегр</span>
+    }
+    </h3>
+}
+
+@code {
+    string niga = "aa";
+    string sneg = "aa";
+    string zima = "aa";
+    string c = "aa";
+    int? Score = null;
+    const int MaxScore = 40;
+    private void RunTest()
+    {
+        Score = 0;
+        if (niga == "Да")
+        
+        {
+            Score += 10;
+        }
+        if (sneg == "Да")
+        {
+            Score += 10;
+        }
+        if (zima == "Да")
+        {
+            Score += 10;
+        }
+        if (c == "Да")
+        {
+            Score += 10;
+        }
+    }
+}

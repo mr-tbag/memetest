@@ -8,6 +8,17 @@
     <Answer Value="Да"/>   
     <Answer Value="Нет"/>
 </Question>
+<Question Text="Ваши тимейты раки?" @bind-Variable="@rak">
+    <Answer Value="Да" />
+    <Answer Value="Нет" />
+</Question>
+<Question Text="Вы знакомы со своими отчимами?" @bind-Variable="@otchim">
+    <Answer Value="Да" />
+    <Answer Value="Нет" />
+</Question><Question Text="на ком легче апать ммр?" @bind-Variable="@mmr">
+    <Answer Value="На корах" />
+    <Answer Value="На сапортах" />
+</Question>
 <button @onclick="RunTest">Узнать результат</button>
     
 @if(Score != null)
@@ -17,7 +28,7 @@
     </h3>
     <h3>
     Вывод: вы 
-    @if(Score >= 10)
+    @if(Score >= 20)
     {
             <span>чмо безмамное</span>
     }
@@ -30,12 +41,28 @@
 
 @code {
     string RazdP = "aa";
+    string rak = "aa";
+    string otchim = "aa";
+    string mmr = "aa";
     int? Score = null;
-    const int MaxScore = 10;
+    const int MaxScore = 40;
     private void RunTest()
     {
         Score = 0;
         if (RazdP == "Нет")
+        // ,lo 
+        {
+            Score += 10;
+        }
+        if (rak == "Да")
+        {
+            Score += 10;
+        }
+        if (otchim == "Да")
+        {
+            Score += 10;
+        }
+        if (mmr == "На корах")
         {
             Score += 10;
         }
